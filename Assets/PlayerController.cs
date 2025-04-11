@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
     private void HandleInput()
@@ -62,9 +62,9 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(new Vector2(dir * moveSpeed, 0), ForceMode2D.Force);
 
-        if (Mathf.Abs(rb.velocity.x) > moveSpeed)
+        if (Mathf.Abs(rb.linearVelocity.x) > moveSpeed)
         {
-            rb.velocity = new Vector2((Mathf.Sign(rb.velocity.x) * moveSpeed), rb.velocity.y);
+            rb.linearVelocity = new Vector2((Mathf.Sign(rb.linearVelocity.x) * moveSpeed), rb.linearVelocity.y);
         }
     }
     
